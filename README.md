@@ -1,61 +1,76 @@
-# 𝙉𝘼𝙎𝙎𝙄𝙈  𝙃𝙊𝙎𝙏 v3
-**طُوِّر بواسطة: @NASSIM_D5X**
+# 🚀 NASSIM HOST - نظام استضافة السيرفرات
 
-## 🚀 منصة استضافة بوتات تيليجرام + Node.js
+<div align="center">
 
----
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![Python](https://img.shields.io/badge/python-3.10+-green)
+![Flask](https://img.shields.io/badge/flask-3.0-red)
+![License](https://img.shields.io/badge/license-MIT-orange)
+![Railway](https://img.shields.io/badge/deploy-Railway-purple)
 
-## 📋 معلومات الأدمن
-- **اسم المستخدم:** nassimhz
-- **كلمة المرور:** nassim246hz
-- **تيليجرام:** @NASSIM_D5X
-- **توكن البوت:** 8676528994:AAFFbhvKNTAoElHYx0pzpT3TaLZxUE3b0js
+**نظام استضافة متكامل لإدارة وتشغيل سيرفرات Python و Node.js**
 
----
+[المميزات](#-المميزات) • [التثبيت](#-التثبيت) • [النشر](#-النشر-على-railway) • [الاستخدام](#-الاستخدام) • [API](#-api)
 
-## 🛠 طريقة النشر (Render)
-
-1. ارفع المجلد على GitHub
-2. أنشئ Web Service جديد على render.com
-3. اربط الـ repo
-4. البناء: `pip install -r requirements.txt`
-5. التشغيل: `gunicorn app:app --timeout 120`
+</div>
 
 ---
 
-## 📁 هيكل الملفات
-```
-MERO_HOST/
-├── app.py              ← السيرفر الرئيسي (Flask)
-├── telegram_bot.py     ← بوت التحكم (python-telegram-bot)
-├── telegram_bot_runner.py ← مشغّل بوتات المستخدمين
-├── index.html          ← لوحة المستخدم
-├── admin_panel.html    ← لوحة الأدمن
-├── login.html          ← صفحة الدخول والاشتراك
-├── requirements.txt    ← المتطلبات
-├── Procfile            ← للنشر على Heroku/Railway
-└── render.yaml         ← للنشر على Render
-```
+## 📋 المميزات
+
+### 🎯 المميزات الأساسية
+- ✅ **دعم Python و Node.js** - تشغيل سيرفرات متعددة اللغات
+- ✅ **لوحة تحكم كاملة** - إدارة سهلة للسيرفرات
+- ✅ **تثبيت تلقائي للمكتبات** - `requirements.txt` و `package.json`
+- ✅ **مراقبة حية** - CPU، RAM، Disk Usage
+- ✅ **نظام صلاحيات** - أدمن ومستخدمين عاديين
+- ✅ **بوت تليجرام** - تحكم كامل عن بعد
+
+### 🛡️ الأمان
+- ✅ **تشفير كلمات المرور** - SHA-256
+- ✅ **API Keys** - مصادقة آمنة للبوت
+- ✅ **حماية من Path Traversal**
+- ✅ **جلسات آمنة** - HttpOnly Cookies
+- ✅ **حدود للموارد** - منع استنزاف الخادم
+
+### ⚡ الأداء
+- ✅ **تخزين مؤقت** - Caching للاستعلامات المتكررة
+- ✅ **كتابة مجمعة** - Batching للـ Database
+- ✅ **مراقبة ذكية** - إعادة تشغيل تلقائي
+- ✅ **تنظيف Zombie Processes**
+- ✅ **تدوير السجلات** - Log Rotation
+
+### 📦 الخطط
+| الخطة | التخزين | الرام | المعالج | السيرفرات | السعر |
+|-------|---------|------|---------|-----------|-------|
+| 🎁 مجاني | 500MB | 256MB | 0.5 Core | 2 | $0 |
+| 💎 4GB | 4GB | 1GB | 1 Core | 5 | $5 |
+| 💎 10GB | 10GB | 2GB | 2 Core | 10 | $10 |
+| 💎 40GB | 40GB | 4GB | 4 Core | 20 | $25 |
 
 ---
 
-## ✨ المميزات الرئيسية
-- ✅ دعم Python + Node.js
-- ✅ نظام طلبات اشتراك مع إشعار تيليجرام فوري
-- ✅ لوحة أدمن متكاملة (قبول/رفض طلبات)
-- ✅ رفع ملفات ZIP مع زر فك الضغط
-- ✅ تغيير أسماء الملفات من الواجهة
-- ✅ تنبيه الملف الرئيسي: main.py + requirements.txt
-- ✅ بوت تيليجرام للتحكم الكامل
-- ✅ مراقبة تلقائية وإعادة تشغيل السيرفرات
-- ✅ تثبيت المكتبات تلقائياً عند الرفع
-- ✅ سجل أخطاء منفصل (errors.log)
+## 📦 التثبيت
 
----
+### المتطلبات
+- Python 3.10+
+- pip
+- Node.js (اختياري - لتشغيل سيرفرات Node.js)
 
-## 🤖 تشغيل بوت التحكم
+### التثبيت المحلي
+
 ```bash
-python telegram_bot.py
-```
+# 1. استنساخ المشروع
+git clone https://github.com/USERNAME/NASSIM-HOST.git
+cd NASSIM-HOST
 
-ملاحظة: البوت يستخدم API Key من الموقع للتحقق من الهوية.
+# 2. إنشاء بيئة افتراضية
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate   # Windows
+
+# 3. تثبيت المكتبات
+pip install -r requirements.txt
+
+# 4. تشغيل التطبيق
+python app.py
